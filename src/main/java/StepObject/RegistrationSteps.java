@@ -2,132 +2,191 @@ package StepObject;
 
 import PageObject.RegistrationPage;
 import com.codeborne.selenide.Condition;
+import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 
 public class RegistrationSteps extends RegistrationPage {
-    public RegistrationSteps CreateAccount(){
+    @Step("Click for joining")
+    public RegistrationSteps CreateAccount() {
         createAccount.click();
         return this;
     }
-    public RegistrationSteps join(){
+
+    @Step("Start registration")
+    public RegistrationSteps join() {
         joinAccount.click();
         return this;
     }
-    public RegistrationSteps email(String Email){
+
+    @Step("Fill email input")
+    public RegistrationSteps email(String Email) {
         email.setValue(Email);
         email.shouldNotBe(Condition.empty);
         return this;
     }
-    public RegistrationSteps firstName(String FirstName){
+
+    @Step("Fill Firstname input")
+    public RegistrationSteps firstName(String FirstName) {
         firstName.setValue(FirstName);
         firstName.shouldNotBe(Condition.empty);
         return this;
     }
-    public RegistrationSteps lastName(String LastName){
+
+    @Step("Fill Lastname input")
+    public RegistrationSteps lastName(String LastName) {
         lastName.setValue(LastName);
         lastName.shouldNotBe(Condition.empty);
         return this;
     }
-    public RegistrationSteps password(String Password){
+
+    @Step("Fill Password input")
+    public RegistrationSteps password(String Password) {
         password.setValue(Password);
         password.shouldNotBe(Condition.empty);
         return this;
     }
-    public RegistrationSteps birthDay(){
+
+    @Step("Enter Birth Day")
+    public RegistrationSteps birthDay() {
         birthDay.click();
         return this;
     }
-    public RegistrationSteps birthMonth(){
+
+    @Step("Enter Birth Month")
+    public RegistrationSteps birthMonth() {
         birthMonth.click();
         return this;
     }
-    public RegistrationSteps birthYear(){
+
+    @Step("Enter Birth Year")
+    public RegistrationSteps birthYear() {
         birthYear.click();
         return this;
     }
-    public RegistrationSteps EmptyBirthYear(){
+
+    public RegistrationSteps EmptyBirthYear() {
         emptybirthYear.click();
-        return  this;
+        return this;
     }
-    public RegistrationSteps SelectGender(){
+
+    @Step("Select gender")
+    public RegistrationSteps SelectGender() {
         male.click();
         return this;
     }
-    public RegistrationSteps SelectAllCheckBox(){
+
+    @Step("Select all Chakebox at the same time")
+    public RegistrationSteps SelectAllCheckBox() {
         checkBox.click();
         return this;
     }
-    public RegistrationSteps DeleteCheckBox(){
+
+    @Step("Delete all Chekbox")
+    public RegistrationSteps DeleteCheckBox() {
         deletecheckBox.click();
         return this;
     }
-    public RegistrationSteps CheckMark0(){
-        checkMark0.click();
-        return this;
-    }
-    public RegistrationSteps CheckMark1(){
+
+    @Step("Select first option from the checkbox")
+    public RegistrationSteps CheckMark1() {
         checkMark1.click();
         return this;
     }
-    public RegistrationSteps CheckMark2(){
+
+    @Step("Select second option from the checkbox")
+    public RegistrationSteps CheckMark2() {
         checkMark2.click();
         return this;
     }
-    public RegistrationSteps CheckMark3(){
+
+    @Step("Select 3rd option from the checkbox")
+    public RegistrationSteps CheckMark3() {
         checkMark3.click();
         return this;
     }
-    public RegistrationSteps ModalButton(){
+
+    @Step("Select 4th option from the checkbox")
+    public RegistrationSteps CheckMark4() {
+        checkMark4.click();
+        return this;
+    }
+
+    @Step("Click 'Tell me more about this' modal button")
+    public RegistrationSteps ModalButton() {
         modalButton.click();
         return this;
     }
-    public RegistrationSteps CloseButton(){
+
+    @Step("Click close button")
+    public RegistrationSteps CloseButton() {
         closeButton.click();
         return this;
     }
-    public RegistrationSteps EnabledButton(){
+
+    @Step("Check if registration button is enabled")
+    public RegistrationSteps EnabledButton() {
         enabledButton.is(Condition.enabled);
         return this;
     }
-    public RegistrationSteps DisabledButton(){
+
+    @Step("Check if registration button is disabled")
+    public RegistrationSteps DisabledButton() {
         disabledButton.is(Condition.disabled);
         return this;
     }
-    public RegistrationSteps EmailError(){
+
+    @Step("Show 'Oops! You need to type your email here' error message")
+    public RegistrationSteps EmailError() {
         Assert.assertTrue(emailError.is(Condition.visible));
         return this;
     }
-    public RegistrationSteps FirstNameError(){
+
+    @Step("Show 'We need your first name – it’s nicer that way' error message")
+    public RegistrationSteps FirstNameError() {
         Assert.assertTrue(firstNameError.is(Condition.visible));
         return this;
     }
-    public RegistrationSteps LastNameError(){
+
+    @Step("Show 'Last name, too, please!' error message")
+    public RegistrationSteps LastNameError() {
         Assert.assertTrue(lastNameError.is(Condition.visible));
         return this;
     }
-    public RegistrationSteps BirthDayError(){
-        Assert.assertTrue(birthdayError.is(Condition.visible));
+
+    @Step("Show 'Enter your full date of birth' error message")
+    public RegistrationSteps BirthDayError() {
+        Assert.assertFalse(birthdayError.is(Condition.visible));
         return this;
     }
-    public RegistrationSteps PasswordError(){
-        Assert.assertTrue(passwordError.is(Condition.visible));
+
+    @Step("Show 'Hey, we need a password here' error message")
+    public RegistrationSteps PasswordError() {
+        passwordError.is(Condition.visible);
         return this;
     }
-    public RegistrationSteps EmailSendKeys(){
-        email.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+
+    @Step("Clear email input")
+    public RegistrationSteps EmailSendKeys() {
+        email.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
         return this;
     }
-    public RegistrationSteps FirstnameSendKeys(){
-        firstName.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+
+    @Step("Clear firstname input")
+    public RegistrationSteps FirstnameSendKeys() {
+        firstName.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
         return this;
     }
-    public RegistrationSteps LastNameSendkKeys(){
-        lastName.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+
+    @Step("Clear lastname input")
+    public RegistrationSteps LastNameSendkKeys() {
+        lastName.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
         return this;
     }
-    public RegistrationSteps PasswordSendKeys(){
-        password.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+
+    @Step("Clear password input")
+    public RegistrationSteps PasswordSendKeys() {
+        password.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
         return this;
     }
 }

@@ -21,29 +21,31 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class Pr1 extends ChromeRunner {
- @Test
- public void case1(){
-  RegistrationSteps steps=new RegistrationSteps();
+ @Test(priority = 0)
+ public void case_1() {
+  RegistrationSteps steps = new RegistrationSteps();
   steps
           .CreateAccount()
           .join()
           .email(emailAddress)
           .firstName(firstName)
           .lastName(lastName)
-           .password(password)
+          .password(password)
           .birthDay()
           .birthMonth()
           .birthYear()
           .SelectGender()
           .SelectAllCheckBox()
           .DeleteCheckBox()
-          .CheckMark0()
           .CheckMark1()
           .CheckMark2()
           .CheckMark3()
+          .CheckMark4()
           .ModalButton()
           .CloseButton()
           .EnabledButton();
+
+
 
 
 
@@ -76,12 +78,16 @@ public class Pr1 extends ChromeRunner {
 
  }
 
- @Test
+ @Test(priority = 1)
  public void case2(){
   RegistrationSteps steps=new RegistrationSteps();
   steps
-          .CreateAccount()
-          .join()
+//          .CreateAccount()
+//          .join()
+          .EmailSendKeys()
+          .FirstnameSendKeys()
+          .LastNameSendkKeys()
+          .PasswordSendKeys()
           .email("marikakankia")
           .firstName("marika")
           .EmailError()
