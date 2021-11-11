@@ -1,5 +1,6 @@
 import Chrome.ChromeRunner3;
 import StepObject.OnlineShoppingSteps;
+import com.codeborne.selenide.SelenideElement;
 import org.testng.annotations.Test;
 import static DataObject.OnlineShoppingData.*;
 public class Pr3 extends ChromeRunner3 {
@@ -11,8 +12,11 @@ public class Pr3 extends ChromeRunner3 {
                 .ChooseItem()
                 .addToCompare()
                 .GoToItemsList()
+                .Itemssectionvisibility()
                 .ChooseSecondCategory()
                 .ChooseSecondItem()
+                .addToCompare()
+                .ListOfItems()
                 .ShowMessage()
                 .ChooseAnotherCategory()
                 .ChooseAnotherItem()
@@ -31,7 +35,7 @@ public class Pr3 extends ChromeRunner3 {
                 .ScrollUp()
                 .ClickTheCart()
                 .GoToCart()
-                .AddRequestedItem()
+                .AddOfferedItem()
                 .IncrementOperator()
                 .DecrementOperator()
                 .RemoveFirstItem()
@@ -55,6 +59,7 @@ public class Pr3 extends ChromeRunner3 {
                 .SendRequest()
                 .WarningMessage();
     }
+
 }
 //        $(".nav__link",7).click();
 //        $(".products__item-wrap",3).click();

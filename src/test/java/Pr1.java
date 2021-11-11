@@ -38,9 +38,6 @@ public class Pr1 extends ChromeRunner {
           .SelectAllCheckBox()
           .DeleteCheckBox()
           .CheckMark1()
-          .CheckMark2()
-          .CheckMark3()
-          .CheckMark4()
           .ModalButton()
           .CloseButton()
           .EnabledButton();

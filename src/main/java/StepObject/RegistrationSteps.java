@@ -90,27 +90,35 @@ public class RegistrationSteps extends RegistrationPage {
 
     @Step("Select first option from the checkbox")
     public RegistrationSteps CheckMark1() {
-        checkMark1.click();
+        for(int i=0;i<=3;i++){
+            checkMark1.click();
+        }
         return this;
     }
 
-    @Step("Select second option from the checkbox")
-    public RegistrationSteps CheckMark2() {
-        checkMark2.click();
-        return this;
-    }
-
-    @Step("Select 3rd option from the checkbox")
-    public RegistrationSteps CheckMark3() {
-        checkMark3.click();
-        return this;
-    }
-
-    @Step("Select 4th option from the checkbox")
-    public RegistrationSteps CheckMark4() {
-        checkMark4.click();
-        return this;
-    }
+//    @Step("Select second option from the checkbox")
+//    public RegistrationSteps CheckMark2() {
+//        for(int i=0;i<2;i++){
+//            checkMark2.click();
+//        }
+//        return this;
+//    }
+//
+//    @Step("Select 3rd option from the checkbox")
+//    public RegistrationSteps CheckMark3() {
+//        for(int i=0;i<2;i++){
+//            checkMark3.click();
+//        }
+//        return this;
+//    }
+//
+//    @Step("Select 4th option from the checkbox")
+//    public RegistrationSteps CheckMark4() {
+//        for(int i=0;i<2;i++){
+//            checkMark4.click();
+//        }
+//        return this;
+//    }
 
     @Step("Click 'Tell me more about this' modal button")
     public RegistrationSteps ModalButton() {
