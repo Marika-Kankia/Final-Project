@@ -2,7 +2,6 @@ package DataObject;
 
 public interface BookingData {
     String
-    Destination="Paris,France",
-    date="27",
+    destination="Paris,France",
     expecteddate="November 2021";
 }

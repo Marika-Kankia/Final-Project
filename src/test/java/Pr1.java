@@ -1,27 +1,22 @@
-import Chrome.ChromeRunner;
+import Utils.ChromeRunner;
 import StepObject.RegistrationSteps;
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.impl.WebElementSelector;
-import io.github.bonigarcia.wdm.WebDriverManager;
 //import org.apache.hc.core5.util.Asserts;
 //import org.junit.Assert;
 //import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.Color;
-import org.testng.Assert;
+import com.sun.net.httpserver.Authenticator;
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-
 import static DataObject.RegistrationData.*;
-import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.*;
 
+@Listeners(Utils.TestLister.class)
 public class Pr1 extends ChromeRunner {
- @Test(priority = 0)
+ @Test(retryAnalyzer = Authenticator.Retry.class,priority = 0)
+ @Severity(SeverityLevel.CRITICAL)
+ @Description("Registration cases")
  public void case_1() {
   RegistrationSteps steps = new RegistrationSteps();
   steps
@@ -75,7 +70,9 @@ public class Pr1 extends ChromeRunner {
 
  }
 
- @Test(priority = 1)
+ @Test(retryAnalyzer = Authenticator.Retry.class,priority = 1)
+ @Severity(SeverityLevel.CRITICAL)
+ @Description("Registration cases")
  public void case2(){
   RegistrationSteps steps=new RegistrationSteps();
   steps
@@ -133,10 +130,6 @@ public class Pr1 extends ChromeRunner {
 //  $(By.id("FirstName")).click();
 //  Assert.assertTrue($(By.id("Password-error")).is(Condition.visible));
 //  Assert.assertTrue($(By.id("register")).is(Condition.disabled));
-
- }
- @Test
- public void testExel(){
 
  }
 }

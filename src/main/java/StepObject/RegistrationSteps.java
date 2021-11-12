@@ -19,28 +19,28 @@ public class RegistrationSteps extends RegistrationPage {
         return this;
     }
 
-    @Step("Fill email input")
+    @Step("Fill email input,Value:{0}")
     public RegistrationSteps email(String Email) {
         email.setValue(Email);
         email.shouldNotBe(Condition.empty);
         return this;
     }
 
-    @Step("Fill Firstname input")
+    @Step("Fill Firstname input,Value:{0}")
     public RegistrationSteps firstName(String FirstName) {
         firstName.setValue(FirstName);
         firstName.shouldNotBe(Condition.empty);
         return this;
     }
 
-    @Step("Fill Lastname input")
+    @Step("Fill Lastname input,Value:{0}")
     public RegistrationSteps lastName(String LastName) {
         lastName.setValue(LastName);
         lastName.shouldNotBe(Condition.empty);
         return this;
     }
 
-    @Step("Fill Password input")
+    @Step("Fill Password input,Value:{0}")
     public RegistrationSteps password(String Password) {
         password.setValue(Password);
         password.shouldNotBe(Condition.empty);
@@ -95,30 +95,6 @@ public class RegistrationSteps extends RegistrationPage {
         }
         return this;
     }
-
-//    @Step("Select second option from the checkbox")
-//    public RegistrationSteps CheckMark2() {
-//        for(int i=0;i<2;i++){
-//            checkMark2.click();
-//        }
-//        return this;
-//    }
-//
-//    @Step("Select 3rd option from the checkbox")
-//    public RegistrationSteps CheckMark3() {
-//        for(int i=0;i<2;i++){
-//            checkMark3.click();
-//        }
-//        return this;
-//    }
-//
-//    @Step("Select 4th option from the checkbox")
-//    public RegistrationSteps CheckMark4() {
-//        for(int i=0;i<2;i++){
-//            checkMark4.click();
-//        }
-//        return this;
-//    }
 
     @Step("Click 'Tell me more about this' modal button")
     public RegistrationSteps ModalButton() {

@@ -2,18 +2,24 @@ package StepObject;
 
 import PageObject.BookingPage;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.testng.Assert;
 
 import javax.print.attribute.standard.Destination;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import static com.codeborne.selenide.Selectors.byXpath;
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.*;
+
 
 public class BookingSteps extends BookingPage {
     @Step("Choose destination")
-    public BookingSteps ChooseDestination(String Destination){
-        destination.setValue(Destination);
+    public BookingSteps ChooseDestination(String destination){
+        choosedestination.setValue(destination);
         return this;
     }
     @Step("Click checkin button")
@@ -22,7 +28,7 @@ public class BookingSteps extends BookingPage {
         return this;
     }
     public void Selectdate(){
-     String currentdate=$(byXpath("//*[@id=\"main\"]/div[1]/div[2]/div/form/div[2]/div[1]/div[2]/div[1]/div/div/ul/li[1]/div/h2")).getText();
+        String currentdate=$("._3LBdi8").getText();
         String expecteddate="November 2021";
         if (currentdate.equals(expecteddate)){
             System.out.println("Month is already selected");
@@ -79,7 +85,7 @@ public class BookingSteps extends BookingPage {
     @Step("Delete added room")
     public BookingSteps DeleteRoom(){
         deletearoom.click();
-        deletearoom.waitUntil(Condition.disappear,1000);
+        deletearoom.waitUntil(Condition.disappear,2000);
         return this;
     }
     @Step("Search information within selected options")
@@ -87,7 +93,79 @@ public class BookingSteps extends BookingPage {
         searchbtn.click();
         return this;
     }
-
-
-
+    public BookingSteps MainTitle(){
+        maintitle.waitUntil(Condition.visible,7000);
+        return this;
+    }
+    @Step("Check if price filter is working correctly ")
+    public BookingSteps CheckFilter(){
+        List<SelenideElement> beforetest = $$("._3XSqn6");
+        List<Double> beforetestlist = new ArrayList<>();
+        for (SelenideElement p : beforetest) {
+            beforetestlist.add(Double.valueOf(p.getText().replace("$", "")));
+        }
+        filterbtn.click();
+        filteroption.click();
+        List<SelenideElement> aftertest = $$("._3XSqn6");
+        List<Double> aftertestlist = new ArrayList<>();
+        for (SelenideElement p : aftertest) {
+            aftertestlist.add(Double.valueOf(p.getText().replace("$", "")));
+        }
+        Collections.sort(beforetestlist);
+        Assert.assertEquals(beforetestlist, aftertestlist);
+        return this;
+    }
+    @Step("Select hotel")
+    public BookingSteps SelectHotel(){
+        selecthotel.waitUntil(Condition.visible,5000);
+        selecthotel.click();
+        return this;
+    }
+    @Step("Switch to another window")
+    public BookingSteps SwitchWindow(){
+        switchTo().window(1);
+        return this;
+    }
+    @Step("Choose room in a hotel")
+    public BookingSteps ChooseRoom() {
+        chooseroom.waitUntil(Condition.visible, 3000);
+        chooseroom.click();
+        return this;
+    }
+    @Step("Show room information")
+    public BookingSteps RoomInformation(){
+        roominformation.click();
+        return this;
+    }
+    @Step("Click next button to see photos from the gallery")
+    public BookingSteps NextButtonElement(){
+        nextbuttonelement.waitUntil(Condition.visible,1000);
+        int i;
+        for(i=0;i<=5;i++){
+            nextbuttonelement.click();
+        }
+        return this;
+    }
+    @Step("Close information bar before seing its information")
+    public BookingSteps CloseInformationBar(){
+        closeinformationbar.click();
+        return this;
+    }
+    @Step("Show price details")
+    public BookingSteps PriceDetails(){
+        pricedetails.waitUntil(Condition.visible,2000);
+        pricedetails.click();
+        return this;
+    }
+    @Step("Close price details bar")
+    public BookingSteps ClosePriceDetailsBar(){
+        closeinformationbar.waitUntil(Condition.visible,1000);
+        closeinformationbar.click();
+        return this;
+    }
+    @Step("Reserve chosen room")
+    public BookingSteps ReserveRoom(){
+        reserveroom.click();
+        return this;
+    }
 }

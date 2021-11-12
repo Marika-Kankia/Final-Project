@@ -21,7 +21,6 @@ public class OnlineShoppingSteps extends OnlineShoppingPage {
     }
     @Step("Add Item to the list to compare")
     public OnlineShoppingSteps addToCompare(){
-        addtoCompare.waitUntil(Condition.visible,1000);
         addtoCompare.click();
         return this;
     }
@@ -67,8 +66,8 @@ public class OnlineShoppingSteps extends OnlineShoppingPage {
     }
     @Step("Delete selected items")
     public OnlineShoppingSteps DeleteItem(){
-        deleteItem.waitUntil(Condition.visible,1000);
         deleteItem.click();
+        deleteItem.waitUntil(Condition.disappear,1000);
         return this;
     }
     @Step("Fill search input ")
@@ -131,38 +130,50 @@ public class OnlineShoppingSteps extends OnlineShoppingPage {
         scrollUp.click();
         return this;
     }
+    public OnlineShoppingSteps Activebtn(){
+        activebtn.waitUntil(Condition.visible,3000);
+        return this;
+    }
+    @Step("Check if the message 'თქვენი კალათა ამჟამად ცარიელია' is visible")
     public OnlineShoppingSteps CartEmptyMessage(){
         cartEmptyMessage.is(Condition.visible);
         return this;
     }
+    @Step("Show item's all charasteristic")
     public OnlineShoppingSteps ShowAllCharasteristic(){
         allCharacteristic.click();
         return this;
     }
-    public OnlineShoppingSteps DemantPhotoOrVideo(){
-        demandPhotoOrVideo.click();
+    @Step("Request photo or video resource")
+    public OnlineShoppingSteps RequestPhotoOrVideo(){
+        requestPhotoOrVideo.click();
         return this;
     }
     public OnlineShoppingSteps RequestMessage(){
         requestMessage.is(Condition.visible);
         return this;
     }
+    @Step("Select one of the visual options")
     public OnlineShoppingSteps SelectVisualOption(){
         photo.click();
         return this;
     }
+    @Step("Select where we want to receive this visual resource")
     public OnlineShoppingSteps SelectContactOption(){
         contactOption.click();
         return this;
     }
+    @Step("FIll firstname and lastname inputs,Value:{0}")
     public OnlineShoppingSteps InsertFirstNameAndLastname(){
         firstNameAndlastName.setValue(firstNameandlastName);
         return this;
     }
+    @Step("Insert mobile number")
     public OnlineShoppingSteps InsertMobileNumber(){
         mobileNumber.setValue(OnlineShoppingData.mobileNumber);
         return this;
     }
+    @Step("Send request")
     public OnlineShoppingSteps SendRequest(){
         sendRequest.click();
         return this;
