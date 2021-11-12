@@ -17,4 +17,9 @@
             <class name="Pr3" />
         </classes>
     </test>
+<!--    <test name="testSuit4" parallel="tests" >-->
+<!--        <classes>-->
+<!--            <class name="Pr4" />-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>
